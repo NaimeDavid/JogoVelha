@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Enums.Simbolo;
 
-//Essa classe pega as jogadas da pessoa (o jogador) e controla o jogo 
 public class Jogo {
 	final Scanner sc = new Scanner(System.in);
 	private Jogador humano = new Jogador();
@@ -34,7 +33,7 @@ public class Jogo {
 			} else if (nivel == 3) {
 				computador = new Nivel3();
 			}
-			// simbolo do jogador Computador:
+		
 			if (escolhido == Simbolo.X) {
 				computador.setLetra(Simbolo.O);
 			} else {
@@ -46,7 +45,7 @@ public class Jogo {
 			System.out.println("Formato de entrada inválido!");
 			return;
 		} catch (NullPointerException a) {
-			// Se inserir nível não existente instancia direto pro jogador Nivel1.
+			
 			System.err.println("Nível inválido!");
 			System.out.println("Nível atribuído: 1");
 			computador = new Nivel1();
@@ -74,7 +73,7 @@ public class Jogo {
 
 				System.out.print("Escolha a coluna: ");
 				coluna = sc.nextInt();
-				// Primeiro verifica se a posição está vazia na matriz, depois insere
+				
 
 				podeInserir = tab.isPosicaoLivre(linha, coluna);
 				if (!podeInserir) {
@@ -88,7 +87,7 @@ public class Jogo {
 
 		} catch (InputMismatchException a) {
 			System.err.println("Formato de entrada inválido! Insira valores de 0 a 2.");
-			sc.next(); // descarta o valor inserido
+			sc.next(); 
 			do {
 				System.out.print("Linha: ");
 				linha = sc.nextInt();
@@ -110,7 +109,7 @@ public class Jogo {
 			System.out.println();
 			return;
 		}
-// Jogada do computador:
+
 		if (!tab.isFimJogo()) {
 			auxComp = computador.comJogar(tab);
 			tab.inserir(auxComp[0], auxComp[1], computador.getLetra());
@@ -121,7 +120,6 @@ public class Jogo {
 		}
 	}
 
-// depois de fazer as jogadas, os metodos vão verificar se a tabela tá cheia.
 	public boolean isFimJogo() {
 		return tab.isFimJogo();
 
@@ -133,10 +131,7 @@ public class Jogo {
 	}
 
 	public void imprimeResultado() {
-		/*
-		 * O getVencedor() verifica linhas, colunas, diagonais, a variável
-		 * "vencendorTabuleiro" vai salvar o simbolo
-		 */
+
 		final Simbolo vencendorTabuleiro = tab.getVencendor();
 
 		if (vencendorTabuleiro != null) {

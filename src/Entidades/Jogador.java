@@ -1,7 +1,7 @@
 package Entidades;
 
 import Enums.Simbolo;
-//Essa classe representa o jogador (simbolo)
+
 public  class Jogador {
 	
 	protected Simbolo letra;

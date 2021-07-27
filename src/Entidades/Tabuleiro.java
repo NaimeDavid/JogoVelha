@@ -8,25 +8,23 @@ public class Tabuleiro {
 	private Simbolo[][] matrizTab = new Simbolo[MAX_MATRIZ][MAX_MATRIZ];
 	
 	public boolean isFimJogo() {
-		// Se qualquer um dos retornos forem TRUE, esse metodo termina a execução do jogo.
+		
 		return verificaTabuleiroCompleto() || verificaColunaIguais() || verificaLinhaIguais()
 				|| verificaDiagonalIgual();
 	}
 
-	// A matriz recebe x e y (linha e coluna). O enum Simbolo da rodada é inserido na posição.
 	public void inserir(int x, int y, Simbolo simbolo) {
 		matrizTab[x][y] = simbolo;
 	}
 
 
 	public boolean isPosicaoLivre(int x, int y) {
-		// Método pra verificar se a posição já está ocoupada.
-		//Se retornar null, está vazio.
+		
 		return matrizTab[x][y] == null;
 	}
 	
 	public void imprimir() {
-		//método pra imprimir as jogadas
+		
 		System.out.println();
 		for (int linha = 0; linha < 3; linha++) {
 			for (int col = 0; col < 3; col++) {
@@ -40,7 +38,7 @@ public class Tabuleiro {
 	}
 
 	private boolean verificaLinhaIguais() {
-		//esse método vai percorrer as Linhas e verificar se as posições estão ocupadas
+		
 		boolean status = false;
 
 		for (int linha = 0; linha < MAX_MATRIZ; linha++) {
@@ -49,12 +47,12 @@ public class Tabuleiro {
 			for (int col = 1; col < MAX_MATRIZ; col++) {
 				if (matrizTab[linha][col] == null || matrizTab[linha][0] == null
 						|| matrizTab[linha][0] != matrizTab[linha][col]) {
-					status = false;//se != null, muda o status pra informar que não tem linhas iguais
+					status = false;
 					break;
 				}
 			}
 			if (status) {
-				//se retornar true, tem linhas iguais, então é fim de jogo em 'isFimJogo()'.
+				
 				break;
 			}
 		}
@@ -63,8 +61,7 @@ public class Tabuleiro {
 
 	private boolean verificaColunaIguais() {
 		boolean status = false;
-		// essa é a mesma lógica da verificaLinhaIguais()		
-		 
+		
 		for (int coluna = 0; coluna < MAX_MATRIZ; coluna++) {
 			status = true;
 
@@ -84,11 +81,11 @@ public class Tabuleiro {
 	}
 
 	private boolean verificaDiagonalIgual() {
-		// pra verificar as diagonais, apenas comparei os indices.
+		
 		if (matrizTab[0][0] != null && matrizTab[1][1] != null && matrizTab[2][2] != null
 				&& matrizTab[0][0] == matrizTab[1][1] && matrizTab[2][2] == matrizTab[1][1]) {
 			return true;
-			//Precisam estar preenchidas e com os 3 indices iguais.
+			
 		}
 
 		if (matrizTab[0][2] != null && matrizTab[1][1] != null && matrizTab[2][0] != null
@@ -99,7 +96,7 @@ public class Tabuleiro {
 	}
 
 	public Simbolo getVencendor() {
-		// Esses ifs comparam se os indices são iguais, linha e coluna pra pegar o Simbolo do vencedor.
+		
 		if (matrizTab[0][0] == matrizTab[1][1] && matrizTab[2][2] == matrizTab[1][1]) {
 			return matrizTab[0][0];
 		}
@@ -115,7 +112,7 @@ public class Tabuleiro {
 				vencendor = matrizTab[linha][col];
 
 				if (matrizTab[linha][0] != matrizTab[linha][col]) {
-					vencendor = null;// Se ficar null, deu empate.
+					vencendor = null;
 					break;
 				}
 			}
@@ -150,13 +147,13 @@ public class Tabuleiro {
 			for (int linha = 0; linha < MAX_MATRIZ; linha++) {
 
 				if (matrizTab[linha][coluna] == null) {
-					// Se tiver algum indice null, então ainda tem posições de inserção.
+				
 					status = false;
 					break;
 				}
 			}
 			if (!status) {
-				//Se retornar true, o tabuleiro está completo.
+			
 				break;
 			}
 		}

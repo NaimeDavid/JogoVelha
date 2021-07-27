@@ -1,7 +1,7 @@
 package Entidades;
 
 public class Nivel3 extends Computador {
-//Esse nível vai preencher primeiro as colunas, e depois as linhas.
+
 	@Override
 	public int[] comJogar(Tabuleiro tab) {
 
@@ -13,7 +13,7 @@ public class Nivel3 extends Computador {
 			coluna++;
 
 			if (coluna > 2) {
-				// depois de as linhas as linhas, pula pra próxima coluna
+				
 				coluna = 0;
 				linha++;
 			}

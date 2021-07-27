@@ -3,7 +3,7 @@ package Entidades;
 import Enums.Simbolo;
 
 public abstract class Computador extends Jogo {
-	// Superclasse dos níveis do jogador computador
+	
 	Computador computador;
 	protected Simbolo letra;
 

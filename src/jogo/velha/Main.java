@@ -21,7 +21,7 @@ public class Main {
 		} while (!start.isFimJogo());
 
 		System.out.println("---------------");
-		// System.out.println("*Fim do Jogo*");
+	
 		start.imprimeResultado();
 
 	}

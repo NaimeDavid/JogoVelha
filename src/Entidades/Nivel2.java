@@ -1,7 +1,6 @@
 package Entidades;
 
 public class Nivel2 extends Computador {
-	//O Nivel2 vai preencher a matriz na esquerda pra direita, preenchendo primeiro as linhas e depois as colunas.
 	
 	@Override
 	public int[] comJogar(Tabuleiro tab) {
@@ -13,7 +12,7 @@ public class Nivel2 extends Computador {
 			linha++;
 
 			if (linha > 2) {
-				//depois de as linhas as linhas, pula pra próxima coluna
+				
 				linha = 0;
 				coluna++;
 			}
